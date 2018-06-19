@@ -1,0 +1,24 @@
+/*da {
+    color: #00b2bc;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+*/
+.bg-warning {
+    background-color: #ff960000 !important;
+}
+.container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 90%;
+  clear: both;
+}
+
+h1{
+text-align: center;
+}
+
