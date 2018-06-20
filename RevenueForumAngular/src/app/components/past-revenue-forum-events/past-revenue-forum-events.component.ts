@@ -4,9 +4,10 @@ import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../.
 import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-details/revenue-forum-event-details.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-past-revenue-forum-events',
-  templateUrl: './past-revenue-forum-events.component.html',
-  styleUrls: ['./past-revenue-forum-events.component.css']
+  templateUrl: 'past-revenue-forum-events.component.html',
+  styleUrls: ['past-revenue-forum-events.component.css']
 })
 export class PastRevenueForumEventsComponent implements OnInit {
   private baseUrl = 'http://localhost:8080/revenueForumEvents';

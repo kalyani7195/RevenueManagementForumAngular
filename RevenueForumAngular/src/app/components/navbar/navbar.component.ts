@@ -4,9 +4,10 @@ import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../.
 import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-details/revenue-forum-event-details.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-navBar',
-  templateUrl: '.\navBar.component.html',
-  styleUrls: ['.\navBar.component.css']
+  templateUrl: 'navBar.component.html',
+  styleUrls: ['navBar.component.css']
 })
 export class NavBarComponent implements OnInit {
   logoPath: string;
@@ -24,8 +25,8 @@ export class NavBarComponent implements OnInit {
       this.pastRevenueForumEvents= pastRevenueForumEvents;
 
       for (var i=0;i<this.pastRevenueForumEvents.length;i++){
-             console.log(pastRevenueForumEvents[i].address.country)
-              console.log(JSON.stringify(pastRevenueForumEvents[i].address.linkToGoogleMap))
+             console.log(pastRevenueForumEvents[i].address.country);
+              console.log(JSON.stringify(pastRevenueForumEvents[i].address.linkToGoogleMap));
               }
 
   });

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-testimonials',
-  templateUrl: './testimonials.component.html',
-  styleUrls: ['./testimonials.component.css']
+  templateUrl: 'testimonials.component.html',
+  styleUrls: ['testimonials.component.css']
 })
 export class TestimonialsComponent implements OnInit {
 

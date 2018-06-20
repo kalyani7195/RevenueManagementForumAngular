@@ -6,9 +6,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
+  moduleId: module.id,
   selector: 'app-create-revenue-forum-event',
-  templateUrl: './create-revenue-forum-event.component.html',
-  styleUrls: ['./create-revenue-forum-event.component.css'],
+  templateUrl: 'create-revenue-forum-event.component.html',
+  styleUrls: ['create-revenue-forum-event.component.css'],
 })
 export class CreateRevenueForumEventComponent implements OnInit {
 

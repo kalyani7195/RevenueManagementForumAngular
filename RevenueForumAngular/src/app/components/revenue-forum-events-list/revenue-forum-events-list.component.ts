@@ -5,9 +5,10 @@ import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../.
 import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-details/revenue-forum-event-details.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-revenue-forum-events-list',
-  templateUrl: './revenue-forum-events-list.component.html',
-  styleUrls: ['./revenue-forum-events-list.component.css']
+  templateUrl: 'revenue-forum-events-list.component.html',
+  styleUrls: ['revenue-forum-events-list.component.css']
 })
 export class RevenueForumEventsListComponent implements OnInit {
 
