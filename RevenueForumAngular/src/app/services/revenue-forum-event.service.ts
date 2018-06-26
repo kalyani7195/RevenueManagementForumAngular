@@ -20,7 +20,8 @@ export class RevenueForumEventService {
 
   getAllRevenueForumEvents(): Observable<RevenueForumEvent[]>{
    const headers= new Headers();
-        headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+        //headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+        headers.append('Access-Control-Allow-Origin','*');
         headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
 
     return this.http.get(`${this.baseUrl}`,{headers: headers}).map((response:Response) => response.json());
@@ -29,7 +30,7 @@ export class RevenueForumEventService {
 
   getRevenueForumEvent(eventId: string):Observable<RevenueForumEvent>{
    const headers= new Headers();
-        headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+        headers.append('Access-Control-Allow-Origin','*');
         headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
 
    return this.http.get(`${this.baseUrl}/${this.urlSuffix}/${eventId}`,{headers: headers}).map((response: Response) => response.json());
@@ -37,7 +38,7 @@ export class RevenueForumEventService {
 
   getUpcomingRevenueForumEvents(): Observable<RevenueForumEvent[]>{
       const headers= new Headers();
-      headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+      headers.append('Access-Control-Allow-Origin','*');
       headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
 
     return this.http.get(`${this.baseUrl}/${this.urlSuffix}/upcoming`,{headers: headers}).map((response: Response) => response.json());
@@ -45,7 +46,7 @@ export class RevenueForumEventService {
 
    getPastRevenueForumEvents(): Observable<RevenueForumEvent[]>{
     const headers= new Headers();
-    headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+    headers.append('Access-Control-Allow-Origin','*');
      headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
 
    return this.http.get(`${this.baseUrl}/${this.urlSuffix}/past`, {headers: headers}).map((response: Response) => response.json());
@@ -57,7 +58,7 @@ export class RevenueForumEventService {
 
    updateRevenueForumEventParticipants(eventId: string,value:any): Observable<any>{
    const headers= new Headers();
-   headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+   headers.append('Access-Control-Allow-Origin','*');
    headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
    const options = new RequestOptions({headers});
    return this.http.put(`${this.baseUrl}/${this.urlSuffix}/addParticipant/${eventId}`,value,options);
@@ -71,7 +72,7 @@ export class RevenueForumEventService {
    getSpeakerImage(pathToImage):Observable<any>{
          console.log('call!!!');
          const headers= new Headers();
-         headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+         headers.append('Access-Control-Allow-Origin','*');
          headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
          console.log(`${this.baseUrl}/speaker/${pathToImage}`);
          return this.http.get(`${this.baseUrl}/${this.urlSuffix}/speaker/${pathToImage}`).map((response: Response) => response.json());
