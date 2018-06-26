@@ -5,8 +5,8 @@ import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-detail
 
 @Component({
   selector: 'app-navBar',
-  templateUrl: './navBar.component.html',
-  styleUrls: ['./navBar.component.css']
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
 export class NavBarComponent implements OnInit {
   logoPath: string;
