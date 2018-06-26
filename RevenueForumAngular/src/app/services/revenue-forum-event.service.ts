@@ -10,29 +10,45 @@ import { Headers } from '@angular/http';
 @Injectable()
 export class RevenueForumEventService {
 
-  /*172.26.121.224*/
+
   private urlSuffix='revenueForumEvents';
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://www.rmforum.co.in:8080';
 
 
   constructor(public http: Http) {
    }
 
   getAllRevenueForumEvents(): Observable<RevenueForumEvent[]>{
-    return this.http.get(`${this.baseUrl}`).map((response:Response) => response.json());
+   const headers= new Headers();
+        headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+        headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
+
+    return this.http.get(`${this.baseUrl}`,{headers: headers}).map((response:Response) => response.json());
 
   }
 
   getRevenueForumEvent(eventId: string):Observable<RevenueForumEvent>{
-   return this.http.get(`${this.baseUrl}/${this.urlSuffix}/${eventId}`).map((response: Response) => response.json());
+   const headers= new Headers();
+        headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+        headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
+
+   return this.http.get(`${this.baseUrl}/${this.urlSuffix}/${eventId}`,{headers: headers}).map((response: Response) => response.json());
     }
 
   getUpcomingRevenueForumEvents(): Observable<RevenueForumEvent[]>{
-    return this.http.get(`${this.baseUrl}/${this.urlSuffix}/upcoming`).map((response: Response) => response.json());
+      const headers= new Headers();
+      headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+      headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
+
+    return this.http.get(`${this.baseUrl}/${this.urlSuffix}/upcoming`,{headers: headers}).map((response: Response) => response.json());
   }
 
    getPastRevenueForumEvents(): Observable<RevenueForumEvent[]>{
-   return this.http.get(`${this.baseUrl}/${this.urlSuffix}/past`).map((response: Response) => response.json());
+    const headers= new Headers();
+    headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+     headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
+
+   return this.http.get(`${this.baseUrl}/${this.urlSuffix}/past`, {headers: headers}).map((response: Response) => response.json());
    }
 
    createRevenueForumEvent(revenueForumEvent: RevenueForumEvent){
@@ -40,17 +56,10 @@ export class RevenueForumEventService {
    }
 
    updateRevenueForumEventParticipants(eventId: string,value:any): Observable<any>{
-   console.log('updateRevenueForumEventParticipants');
-
    const headers= new Headers();
-
    headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
-
    headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
    const options = new RequestOptions({headers});
-
-   console.log(value);
-   console.log(`${this.baseUrl}/${this.urlSuffix}/addParticipant/${eventId}`);
    return this.http.put(`${this.baseUrl}/${this.urlSuffix}/addParticipant/${eventId}`,value,options);
    }
 
@@ -60,9 +69,12 @@ export class RevenueForumEventService {
 
 
    getSpeakerImage(pathToImage):Observable<any>{
-   console.log('call!!!');
-   console.log(`${this.baseUrl}/speaker/${pathToImage}`);
-   return this.http.get(`${this.baseUrl}/${this.urlSuffix}/speaker/${pathToImage}`).map((response: Response) => response.json());
+         console.log('call!!!');
+         const headers= new Headers();
+         headers.append('Access-Control-Allow-Origin',`${this.baseUrl}`);
+         headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
+         console.log(`${this.baseUrl}/speaker/${pathToImage}`);
+         return this.http.get(`${this.baseUrl}/${this.urlSuffix}/speaker/${pathToImage}`).map((response: Response) => response.json());
    }
   }
 

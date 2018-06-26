@@ -141,4 +141,9 @@
       "prefix": "app"
     }
   }
+//  "defaults": {
+//    "serve": {
+//      "port": 8080
+//    }
+//  }
 }

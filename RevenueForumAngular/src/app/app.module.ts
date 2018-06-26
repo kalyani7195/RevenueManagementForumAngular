@@ -12,9 +12,9 @@ import { RevenueForumAddParticipantComponent } from './components/revenue-forum-
 import { UpcomingRevenueForumEventsComponent } from './components/upcoming-revenue-forum-events/upcoming-revenue-forum-events.component';
 import { PastRevenueForumEventsComponent } from './components/past-revenue-forum-events/past-revenue-forum-events.component';
 import { NavBarComponent } from './components/navbar/navbar.component';
-import { CreateRevenueForumEventComponent } from './components/create-revenue-forum-event/create-revenue-forum-event.component';
+//import { CreateRevenueForumEventComponent } from './components/create-revenue-forum-event/create-revenue-forum-event.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
+//import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
  import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -31,9 +31,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RevenueForumAddParticipantComponent,
     UpcomingRevenueForumEventsComponent,
     PastRevenueForumEventsComponent,
-    CreateRevenueForumEventComponent,
+  //  CreateRevenueForumEventComponent,
     AboutUsComponent,
-    ContactUsComponent,
+  //  ContactUsComponent,
     NavBarComponent,
     TestimonialsComponent
 

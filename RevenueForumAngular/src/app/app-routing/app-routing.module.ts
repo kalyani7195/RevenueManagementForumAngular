@@ -6,14 +6,14 @@ import { RevenueForumAddParticipantComponent } from '../components/revenue-forum
 import { UpcomingRevenueForumEventsComponent } from '../components/upcoming-revenue-forum-events/upcoming-revenue-forum-events.component';
 import { PastRevenueForumEventsComponent } from '../components/past-revenue-forum-events/past-revenue-forum-events.component';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
-import { ContactUsComponent } from '../components/contact-us/contact-us.component';
-import { CreateRevenueForumEventComponent } from '../components/create-revenue-forum-event/create-revenue-forum-event.component';
+//import { ContactUsComponent } from '../components/contact-us/contact-us.component';
+//import { CreateRevenueForumEventComponent } from '../components/create-revenue-forum-event/create-revenue-forum-event.component';
 import { TestimonialsComponent } from '../components/testimonials/testimonials.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'aboutUs', pathMatch: 'full' },
   { path: 'aboutUs' , component: AboutUsComponent},
-  { path: 'contactUs', component: ContactUsComponent},
+ // { path: 'contactUs', component: ContactUsComponent},
   { path : 'testimonials' ,component: TestimonialsComponent },
 
   { path: 'revenueForumEvents',
@@ -28,7 +28,7 @@ const routes: Routes = [
 
 
 
-  { path: 'createEvent' , component: CreateRevenueForumEventComponent },
+//  { path: 'createEvent' , component: CreateRevenueForumEventComponent },
 ];
 
 @NgModule({

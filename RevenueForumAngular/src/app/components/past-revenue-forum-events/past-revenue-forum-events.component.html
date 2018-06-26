@@ -1,71 +1,11 @@
 
-<!--
-<div *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
-  <h4>{{pastRevenueForumEvent.title}}</h4>
-  <h4>{{pastRevenueForumEvent.description}}</h4>
-  <div *ngFor="let speaker of pastRevenueForumEvent.speakers">
-    <h4>{{speaker.name}}</h4>
-  </div>
-  <h4>{{pastRevenueForumEvent.address.details}}{{ pastRevenueForumEvent.address.city}}</h4>
-
-  <div *ngFor="let participant of pastRevenueForumEvent.participants">
-    <h4>{{participant.name}}</h4>
-    <h4>{{participant.organization}}</h4>
-  </div>
-
-</div>
-
-
-<ul>
-
-  <li class="card card-body" *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
-
-    <h2> {{pastRevenueForumEvent.title}} </h2>
-    <h6>{{pastRevenueForumEvent.description}}</h6>
-    <ul class="list-group">
-      <li class="list-group-item">{{pastRevenueForumEvent.startDateTime}}</li>
-      <li class="list-group-item">{{pastRevenueForumEvent.endDateTime}}</li>
-      <li class="list-group-item">{{pastRevenueForumEvent.address.details}},{{pastRevenueForumEvent.address.city}},{{pastRevenueForumEvent.address.pinCode}},
-        {{pastRevenueForumEvent.address.state}},{{pastRevenueForumEvent.address.country}}
-      </li>
-
-
-    </ul>
-  </li>
-
-
-</ul>
--->
-
-<!--<img  src="{{getImageUrl('PamelaDatta')}}" class="img-thumbnail"> -->
-
-
-
-
-
-
-
-
-
-
-
-<!--<div id="check" *ngIf="getlength > 0"> -->
 <div id="eventForLoop" *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
-
   <div class="jumbotron" >
-
     <h4 class="display-6">{{pastRevenueForumEvent.title}}</h4>
-
     <p >{{pastRevenueForumEvent.description}}</p>
-
-  <!--  <div *ngIf="showExtended"> -->
     <hr class="my-4">
-
     <h4>Speakers</h4>
     <div id="speakerImageContainer" *ngFor="let speaker of pastRevenueForumEvent.speakers">
-
-
-
 
       <div class="container">
         <div class="row">
@@ -78,34 +18,10 @@
           <h5 id= "position" class="card-title">{{speaker.position}}</h5>
           <h5 id="organization" class="card-title">{{speaker.organization}}</h5>
         </div>
-
         </div>
           </div>
       </div>
       </div>
-
-
-
-
-
-
-
-
-
-      <!--<div  class="container">
-      <img width="275" src="{{getImageUrl(speaker.pathToImage)}}" class="img-thumbnail">
-        <a id="speakerName" href={{speaker.linkToLinkedInProfile}} target="_blank"><h6>{{speaker.name}}</h6></a>
-        <h6 id="speakerCredentials">{{speaker.position}},{{speaker.organization}}</h6>
-      </div>
-
-    <!--  <img [src]="getImage(speaker.pathToImage)">
-
-    <img [src] = "{{speakerImage}}"> -->
-
-
-
-
-
     </div>
     <hr class="my-4">
     <h4>When</h4>
@@ -117,15 +33,4 @@
     <a href={{pastRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>{{pastRevenueForumEvent.address.details}},{{pastRevenueForumEvent.address.city}}-{{pastRevenueForumEvent.address.pinCode}} ,{{pastRevenueForumEvent.address.state}},{{pastRevenueForumEvent.address.country}}</h6></a>
   </div>
   </div>
-<!--</div>
-</div> -->
-
-<!--<div *ngIf="pastRevenueForumEvents.length == 0" >
-  <div lcass="jumbotron">
-    <h4 class="display-6">No past Revenue Management Forums  exist</h4>
-  </div>
-
-
-</div> -->
-
 
