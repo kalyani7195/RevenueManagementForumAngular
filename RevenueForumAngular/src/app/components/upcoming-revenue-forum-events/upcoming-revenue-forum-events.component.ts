@@ -25,8 +25,6 @@ export class UpcomingRevenueForumEventsComponent implements OnInit {
   this.upcomingRevenueForumEvents= upcomingRevenueForumEvents;
   }
   );
-
-
   }
 
 
@@ -36,13 +34,7 @@ export class UpcomingRevenueForumEventsComponent implements OnInit {
   this.revenueForumEventService.updateRevenueForumEventParticipants(eventId, participant)
   .subscribe(data => {console.log(data);},
    error => console.log(error));
+
+   alert('Thank you for registration! Please check your Email for more details.')
  }
-
-    onSubmit(e){
-    console.log('Inside onSubmit');
-    e.preventDefault();
-    }
-
-
-
 }

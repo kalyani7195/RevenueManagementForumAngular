@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { RevenueForumEventsListComponent } from '../components/revenue-forum-events-list/revenue-forum-events-list.component';
-import { RevenueForumAddParticipantComponent } from '../components/revenue-forum-add-participant/revenue-forum-add-participant.component';
+//import { RevenueForumEventsListComponent } from '../components/revenue-forum-events-list/revenue-forum-events-list.component';
+//import { RevenueForumAddParticipantComponent } from '../components/revenue-forum-add-participant/revenue-forum-add-participant.component';
 import { UpcomingRevenueForumEventsComponent } from '../components/upcoming-revenue-forum-events/upcoming-revenue-forum-events.component';
 import { PastRevenueForumEventsComponent } from '../components/past-revenue-forum-events/past-revenue-forum-events.component';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
@@ -13,11 +13,9 @@ import { TestimonialsComponent } from '../components/testimonials/testimonials.c
 const routes: Routes = [
   { path: '', redirectTo: 'aboutUs', pathMatch: 'full' },
   { path: 'aboutUs' , component: AboutUsComponent},
- // { path: 'contactUs', component: ContactUsComponent},
   { path : 'testimonials' ,component: TestimonialsComponent },
 
   { path: 'revenueForumEvents',
-    //component: RevenueForumEventsListComponent,
     children: [
       { path : '', redirectTo: 'revenueForumEvents' ,pathMatch: 'full'},
       { path : 'upcoming', component: UpcomingRevenueForumEventsComponent  },
@@ -25,9 +23,6 @@ const routes: Routes = [
       ]
 
   },
-
-
-
 //  { path: 'createEvent' , component: CreateRevenueForumEventComponent },
 ];
 

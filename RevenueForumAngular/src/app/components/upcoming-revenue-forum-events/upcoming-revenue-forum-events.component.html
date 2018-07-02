@@ -27,7 +27,15 @@
 <!--
 <div class="card w-75">
   <div class="card-body"> -->
+
+<div *ngIf ="upcomingRevenueForumEvents?.length == 0" >
+  <h4 class="display-6">Next event coming soon...</h4>
+</div>
+
+<div *ngIf ="upcomingRevenueForumEvents?.length > 0 ">
 <div *ngFor="let upcomingRevenueForumEvent of upcomingRevenueForumEvents">
+
+
 
   <div class="jumbotron" >
     <h4 class="display-6">{{upcomingRevenueForumEvent.title}}</h4>
@@ -86,7 +94,7 @@
                   </div>
 
                   <div [hidden]="!participantName.errors?.minlength" class="invalid-feedback">
-                    Name must be at least 3 characters.
+                    Name must be at least 2 characters.
                   </div>
                 </div>
 
@@ -145,12 +153,13 @@
             </div>
           </div>
           <div class="modal-footer">
-            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-            <button type="button" [disabled]="!participantForm.form.valid" class="btn btn-primary" (click)="registerParticipant(upcomingRevenueForumEvent.eventId,participant)" data-dismiss="modal">Add</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" [disabled]="!participantForm.form.valid" class="btn btn-primary" (click)="registerParticipant(upcomingRevenueForumEvent.eventId,participant)" >Add</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 

@@ -6,9 +6,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import  { RevenueForumEventService } from  './services/revenue-forum-event.service';
-import { RevenueForumEventsListComponent } from './components/revenue-forum-events-list/revenue-forum-events-list.component';
-import { RevenueForumEventDetailsComponent } from './components/revenue-forum-event-details/revenue-forum-event-details.component';
-import { RevenueForumAddParticipantComponent } from './components/revenue-forum-add-participant/revenue-forum-add-participant.component';
+//import { RevenueForumEventsListComponent } from './components/revenue-forum-events-list/revenue-forum-events-list.component';
+//import { RevenueForumEventDetailsComponent } from './components/revenue-forum-event-details/revenue-forum-event-details.component';
+//import { RevenueForumAddParticipantComponent } from './components/revenue-forum-add-participant/revenue-forum-add-participant.component';
 import { UpcomingRevenueForumEventsComponent } from './components/upcoming-revenue-forum-events/upcoming-revenue-forum-events.component';
 import { PastRevenueForumEventsComponent } from './components/past-revenue-forum-events/past-revenue-forum-events.component';
 import { NavBarComponent } from './components/navbar/navbar.component';
@@ -26,9 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    RevenueForumEventsListComponent,
-    RevenueForumEventDetailsComponent,
-    RevenueForumAddParticipantComponent,
+  //  RevenueForumEventsListComponent,
+  //  RevenueForumEventDetailsComponent,
+  //  RevenueForumAddParticipantComponent,
     UpcomingRevenueForumEventsComponent,
     PastRevenueForumEventsComponent,
   //  CreateRevenueForumEventComponent,

@@ -11,6 +11,9 @@ import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-detail
 })
 export class PastRevenueForumEventsComponent implements OnInit {
   private baseUrl = 'http://www.rmforum.co.in:8080/revenueForumEvents';
+
+  //private baseUrl = 'http://localhost:8080/revenueForumEvents';
+
   pastRevenueForumEvents: RevenueForumEvent[];
   showExtended:boolean =false;
   count: number;
@@ -57,13 +60,6 @@ export class PastRevenueForumEventsComponent implements OnInit {
 
 
   };
-
-
-
-
-
-
-
 
   toggle(pastRevenueForumEvent: RevenueForumEvent){
     pastRevenueForumEvent.showExtended=!pastRevenueForumEvent.showExtended;

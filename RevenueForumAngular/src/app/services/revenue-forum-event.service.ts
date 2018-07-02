@@ -13,6 +13,7 @@ export class RevenueForumEventService {
 
   private urlSuffix='revenueForumEvents';
   private baseUrl = 'http://www.rmforum.co.in:8080';
+  //private baseUrl = 'http://localhost:8080';
 
 
   constructor(public http: Http) {
