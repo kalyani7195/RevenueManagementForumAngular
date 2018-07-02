@@ -10,7 +10,7 @@ import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-detail
   styleUrls: ['past-revenue-forum-events.component.css']
 })
 export class PastRevenueForumEventsComponent implements OnInit {
-  private baseUrl = 'http://localhost:8080/revenueForumEvents';
+  private baseUrl = 'http://www.rmforum.co.in:8080/revenueForumEvents';
   pastRevenueForumEvents: RevenueForumEvent[];
   showExtended:boolean =false;
   count: number;
