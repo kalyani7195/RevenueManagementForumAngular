@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RevenueForumEventService } from '../../services/revenue-forum-event.service';
 import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../../models/revenueForumEvent';
-import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-details/revenue-forum-event-details.component';
+//import { RevenueForumEventDetailsComponent } from '../revenue-forum-event-details/revenue-forum-event-details.component';
 
 @Component({
   moduleId: module.id,
