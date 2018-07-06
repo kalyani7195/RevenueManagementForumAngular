@@ -7,7 +7,7 @@ import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../.
   moduleId: module.id,
   selector: 'app-past-revenue-forum-events',
   templateUrl: 'past-revenue-forum-events.component.html',
-  styleUrls: ['past-revenue-forum-events.component.css']
+  styleUrls: ['past-revenue-forum-events.component.scss']
 })
 export class PastRevenueForumEventsComponent implements OnInit {
   private baseUrl = 'http://www.rmforum.co.in:8080/revenueForumEvents';
@@ -82,3 +82,4 @@ export class PastRevenueForumEventsComponent implements OnInit {
 
 
   }
+

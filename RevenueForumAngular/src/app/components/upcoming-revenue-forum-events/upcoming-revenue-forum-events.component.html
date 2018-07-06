@@ -1,242 +1,109 @@
-<!--
-<ul>
-  <li class="card card-body" *ngFor="let upcomingRevenueForumEvent of upcomingRevenueForumEvents">
-    <h2> {{upcomingRevenueForumEvent.title}} </h2>
-    <h6>{{upcomingRevenueForumEvent.description}}</h6>
-    <ul class="list-group">
-      <li class="list-group-item">{{upcomingRevenueForumEvent.startDateTime}}</li>
-      <li class="list-group-item">{{upcomingRevenueForumEvent.endDateTime}}</li>
 
 
-      <li class="list-group-item">{{upcomingRevenueForumEvent.address.details}},{{upcomingRevenueForumEvent.address.city}},{{upcomingRevenueForumEvent.address.pinCode}},
-        {{upcomingRevenueForumEvent.address.state}},{{upcomingRevenueForumEvent.address.country}}
-      </li>
+<br>
+<br>
+<div class="row">
+  <div class="col">
+  </div>
 
-
-    </ul>
-  </li>
-
-
-</ul>
- -->
-
-
-
-
-
-<!--
-<div class="card w-75">
-  <div class="card-body"> -->
-
-<div *ngIf ="upcomingRevenueForumEvents?.length == 0" >
-  <h4 class="display-6">Next event coming soon...</h4>
-</div>
-
-<div *ngIf ="upcomingRevenueForumEvents?.length > 0 ">
-<div *ngFor="let upcomingRevenueForumEvent of upcomingRevenueForumEvents">
-
-
-
-  <div class="jumbotron" >
-    <h4 class="display-6">{{upcomingRevenueForumEvent.title}}</h4>
-
-    <p >{{upcomingRevenueForumEvent.description}}</p>
-
-    <!--  <div *ngIf="showExtended"> -->
-    <hr class="my-4">
-
-    <h4>Speakers</h4>
-    <div *ngFor="let speaker of upcomingRevenueForumEvent.speakers">
-      <a href={{speaker.linkToLinkedInProfile}} target="_blank"><h6>{{speaker.name}}</h6></a>
-
-
-      <h6>{{speaker.position}},{{speaker.organization}}</h6>
-
+  <div class="col-10">
+    <div *ngIf ="upcomingRevenueForumEvents?.length === 0" >
+      <h4 class="display-6">Next event coming soon...</h4>
     </div>
-    <hr class="my-4">
-    <h4>When</h4>
-    <h6>{{upcomingRevenueForumEvent.startDateTime |date: 'fullDate'}}</h6>
-    <h6>{{upcomingRevenueForumEvent.startDateTime |date: 'shortTime'}} to {{upcomingRevenueForumEvent.endDateTime | date:'shortTime'}}</h6>
-    <hr class="my-4">
 
-    <h4>Where</h4>
-    <a href={{upcomingRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>{{upcomingRevenueForumEvent.address.details}},{{upcomingRevenueForumEvent.address.city}}-{{upcomingRevenueForumEvent.address.pinCode}} ,{{upcomingRevenueForumEvent.address.state}},{{upcomingRevenueForumEvent.address.country}}</h6></a>
+    <div *ngIf ="upcomingRevenueForumEvents?.length > 0">
+      <div *ngFor="let upcomingRevenueForumEvent of upcomingRevenueForumEvents">
 
 
 
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#participantRegistrationModal">Register</button>
-    <div class="modal fade" id="participantRegistrationModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
+        <div class="jumbotron" >
+          <h4 class="display-6 flex-center"><strong>{{upcomingRevenueForumEvent.title}}</strong></h4>
 
-            <h4 class="modal-title" id="participantRegistrationModalLabel">Add participant</h4>
+          <p >{{upcomingRevenueForumEvent.description}}</p>
+
+
+          <hr class="my-4">
+          <div *ngFor="let speaker of upcomingRevenueForumEvent.speakers">
+            <a href={{speaker.linkToLinkedInProfile}} target="_blank"><h6>{{speaker.name}}</h6></a>
+
+
+            <h6>{{speaker.position}},{{speaker.organization}}</h6>
+
           </div>
-          <div class="modal-body">
-            <div class="container">
-              <form #participantForm="ngForm" (ngSubmit)="onSubmit(participantForm)">
+          <hr class="my-4">
 
-                <div class="form-group">
-                <label> Name: </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="participant.name"
-                  [ngClass]="{'is-invalid':participantName.errors && participantName.touched }"
-                  name="name"
-                  #participantName="ngModel"
-                  required
-                  minlength="5"
-                >
-                  <div [hidden]="!participantName.errors?.required"
-                    class="invalid-feedback">
-                    Name is required
-                  </div>
+          <h6>On {{upcomingRevenueForumEvent.startDateTime |date: 'fullDate'}}</h6>
+          <h6>{{upcomingRevenueForumEvent.startDateTime |date: 'shortTime'}} to {{upcomingRevenueForumEvent.endDateTime | date:'shortTime'}}</h6>
+          <a href={{upcomingRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>{{upcomingRevenueForumEvent.address.details}},{{upcomingRevenueForumEvent.address.city}}-{{upcomingRevenueForumEvent.address.pinCode}} ,{{upcomingRevenueForumEvent.address.state}},{{upcomingRevenueForumEvent.address.country}}</h6></a>
 
-                  <div [hidden]="!participantName.errors?.minlength" class="invalid-feedback">
-                    Name must be at least 2 characters.
-                  </div>
+
+          <hr class="my-4">
+
+
+          <button type="button" class="btn btn-primary waves-light" (click)="form.show()" mdbWavesEffect>Register</button>
+          <div mdbModal #form="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+              <div class="modal-content">
+
+                <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title"><i class="fa fa-pencil"></i> Registration Form </h4>
+                  <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+                    <span aria-hidden="true">×</span>
+                  </button>
                 </div>
 
-
-                <div class="form-group">
-                <label>Email Address: </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="participant.emailId"
-                  [ngClass]="{'is-invalid': participantEmail.errors && participantEmail.touched }"
-                  name="emailId"
-                  #participantEmail="ngModel"
-                  required
-                  pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-
-
-                >
-
-                  <div [hidden]="!participantEmail.errors?.required"
-                       class="invalid-feedback">
-                    Email is required
+                <div class="modal-body mb-0">
+                  <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input mdbInputDirective type="text" id="name" class="form-control" [(ngModel)]="participant.name">
+                    <label for="name">Your name</label>
                   </div>
 
-                  <div [hidden]="!participantEmail.errors?.pattern" class="invalid-feedback">
-                    Email is not valid.
+                  <div class="md-form form-sm">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input mdbInputDirective type="text" id="email" class="form-control" [(ngModel)]="participant.emailId">
+                    <label for="email">Your email</label>
+                  </div>
+
+                  <div class="md-form form-sm">
+                    <i class="fa fa-briefcase prefix"></i>
+                    <input mdbInputDirective type="text" id="organization" class="form-control"  [(ngModel)]="participant.organization">
+                    <label for="organization">Your Organization</label>
+                  </div>
+                  <div class="text-center mt-1-half">
+                    <button class="btn btn-info mb-2 waves-light" (click)="registerParticipant(upcomingRevenueForumEvent.eventId,participant)" mdbWavesEffect>Add <i class="fa fa-send ml-1"></i></button>
                   </div>
 
                 </div>
-
-
-                <div class="form-group">
-                <label>Organization: </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="participant.organization"
-                  [ngClass]="{'is-invalid': participantOrganization.errors && participantOrganization.touched }"
-                  name="organization"
-                  #participantOrganization="ngModel"
-                  required
-                  minlength="2"
-                >
-                  <div [hidden]="!participantOrganization.errors?.required"
-                       class="invalid-feedback">
-                    Organization is required
-                  </div>
-
-                  <div [hidden]="!participantOrganization.errors?.minlength"
-                       class="invalid-feedback">
-                    Organization must be at least 2 characters.
-                  </div>
-
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" [disabled]="!participantForm.form.valid" class="btn btn-primary" (click)="registerParticipant(upcomingRevenueForumEvent.eventId,participant)" >Add</button>
-          </div>
         </div>
       </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!--
-</div>
-</div>
--->
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<div *ngFor="let upcomingRevenueForumEvent of upcomingRevenueForumEvents">
-
-  <div class="jumbotron">
-    <h1 class="display-3">{{upcomingRevenueForumEvent.title}}</h1>
-    <p class="lead">{{upcomingRevenueForumEvent.description}}</p>
-    <hr class="my-4">
-    <div *ngFor="let speaker of upcomingRevenueForumEvent.speakers">
-      <a href={{speaker.linkToLinkedInProfile}} target="_blank">{{speaker.name}}</a>
-
-      <div id="loadImageBootstrapStyleDiv">
-
-        <img src='http://localhost:8080/image/{{speaker.name}}.png' id="jsaAboutImageId" class="img-rounded img-responsive" alt="JSA-About Image" />
-        <div class="caption">
-          <p>finally</p>
-        </div>
-
-      </div>
-    </div>
-
-    <h4>Address</h4>
-    <h4>{{upcomingRevenueForumEvent.details}}</h4>
-    <h1>{{upcomingRevenueForumEvent.eventId}}</h1>
-    <h4>{{upcomingRevenueForumEvent.city}},{{upcomingRevenueForumEvent.pinCode}},{{upcomingRevenueForumEvent.state}},{{upcomingRevenueForumEvent.country}}</h4>
-
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#participantRegistrationModal">Register</button>
-    <div class="modal fade" id="participantRegistrationModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-
-             <h4 class="modal-title" id="participantRegistrationModalLabel">Add participant</h4>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-              <form>
-              <label> Name: </label>
-           <input type="text" id="participantName"  > <br/>
-            <label>Email Address: </label>
-            <input type="text" id="participantEmail"><br/>
-            <label>Organization: </label>
-           <input type="text" id="participantOrganization"><br/>
-          </form>
-          </div>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-ng-click="registerParticipant()">Add</button>
-          </div>
-        </div>
-      </div>
     </div>
 
 
 
+
+
+  </div>
+  <div class="col">
+
   </div>
 </div>
--->
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -15,12 +15,13 @@ import { NavBarComponent } from './components/navbar/navbar.component';
 //import { CreateRevenueForumEventComponent } from './components/create-revenue-forum-event/create-revenue-forum-event.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 //import { ContactUsComponent } from './components/contact-us/contact-us.component';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
  import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CreateEventComponent } from './components/create-event/create-event.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 
 @NgModule({
@@ -35,10 +36,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutUsComponent,
   //  ContactUsComponent,
     NavBarComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    CreateEventComponent
+
 
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
     FormsModule,
@@ -48,7 +52,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
+
   providers: [ RevenueForumEventService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }

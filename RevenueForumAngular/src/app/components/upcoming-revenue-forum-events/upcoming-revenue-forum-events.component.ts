@@ -7,7 +7,7 @@ import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../.
   moduleId: module.id,
   selector: 'app-upcoming-revenue-forum-events',
   templateUrl: 'upcoming-revenue-forum-events.component.html',
-  styleUrls: ['upcoming-revenue-forum-events.component.css']
+  styleUrls: ['upcoming-revenue-forum-events.component.scss']
 })
 export class UpcomingRevenueForumEventsComponent implements OnInit {
   upcomingRevenueForumEvents:RevenueForumEvent[];

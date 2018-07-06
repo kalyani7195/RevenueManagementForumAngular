@@ -1,14 +1,97 @@
 
+<div class="view" xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:font-size="http://www.w3.org/1999/xhtml">
+  <div class="full-bg-img">
+    <div class="mask rgba-black-light flex-center">
+      <div class="container text-center white-text">
+        <div class="white-text text-center wow fadeInUp">
+
+
+
+          <div class="container">
+            <div class="row">
+              <div *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
+              <div class="col">
+                <button type="button" class="btn btn-primary btn-block btn-huge waves-light" (click)="form.show()" mdbWavesEffect>{{pastRevenueForumEvent.title}}</button>
+                <div mdbModal #form="mdb-modal" class="modal fade" id="modalRelatedContent" tabindex="-1" data-backdrop="false" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-notify modal-info" role="document">
+
+                      <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                          <p class="heading">{{pastRevenueForumEvent.title}}</p>
+                          <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                          <h6>{{pastRevenueForumEvent.description}}</h6>
+                          <hr>
+                          <p> On {{pastRevenueForumEvent.startDateTime |date: 'fullDate'}}</p>
+                          <p> {{pastRevenueForumEvent.startDateTime |date: 'shortTime'}} to {{pastRevenueForumEvent.endDateTime | date:'shortTime'}}</p>
+                          <p>@
+                            <a href={{pastRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>  {{pastRevenueForumEvent.address.details}},{{pastRevenueForumEvent.address.city}}-{{pastRevenueForumEvent.address.pinCode}} ,{{pastRevenueForumEvent.address.state}},{{pastRevenueForumEvent.address.country}}</h6></a>
+
+                          </p>
+                          <hr>
+                          <br>
+                          <div *ngFor="let speaker of pastRevenueForumEvent.speakers">
+                          <div class="row">
+                            <div class="col-5">
+                              <a  href={{speaker.linkToLinkedInProfile}} target="_blank">
+                              <img src="{{getImageUrl(speaker.pathToImage)}}" class="img-fluid" alt="">
+                              </a>
+                            </div>
+                            <div class="col-7">
+                              <p><strong>{{speaker.name}}</strong></p>
+                              <p>{{speaker.position}},{{speaker.organization}}</p>
+                            </div>
+                          </div>
+                            <hr>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                  <br>
+              </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--/.Panel-->
+
+
+
+<!--
+
 <div id="eventForLoop" *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
   <div class="jumbotron" >
-    <h4 class="display-6">{{pastRevenueForumEvent.title}}</h4>
-    <p >{{pastRevenueForumEvent.description}}</p>
+    <h2 class="h1 h1-responsive flex-center">{{pastRevenueForumEvent.title}}</h2>
+    <p class="flex-center">{{pastRevenueForumEvent.description}}</p>
     <hr class="my-4">
-    <h4>Speakers</h4>
-    <div id="speakerImageContainer" *ngFor="let speaker of pastRevenueForumEvent.speakers">
-
+    <div id="speakerImageContainer"  *ngFor="let speaker of pastRevenueForumEvent.speakers">
       <div class="container">
-        <div class="row">
+        <div class="row flex-center">
           <div class="col-sm-21 col-lg-4">
       <div class="card h-500 border-secondary" style="width: 21rem;">
         <img class="card-img-top" src="{{getImageUrl(speaker.pathToImage)}}" alt="Card image cap">
@@ -32,5 +115,23 @@
     <h4>Where</h4>
     <a href={{pastRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>{{pastRevenueForumEvent.address.details}},{{pastRevenueForumEvent.address.city}}-{{pastRevenueForumEvent.address.pinCode}} ,{{pastRevenueForumEvent.address.state}},{{pastRevenueForumEvent.address.country}}</h6></a>
   </div>
-  </div>
+</div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -56,6 +56,12 @@ export class RevenueForumEventService {
    }
 
    createRevenueForumEvent(revenueForumEvent: RevenueForumEvent){
+    const headers= new Headers();
+       headers.append('Access-Control-Allow-Origin','*');
+        headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
+       console.log(`${this.baseUrl}/${this.urlSuffix}/past`);
+        const options = new RequestOptions({headers});
+
    return this.http.post(`${this.baseUrl}/${this.urlSuffix}`,revenueForumEvent);
    }
 

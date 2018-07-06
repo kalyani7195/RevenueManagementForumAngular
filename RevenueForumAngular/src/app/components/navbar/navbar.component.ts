@@ -6,7 +6,7 @@ import { RevenueForumEvent, Address, Material, Participant, Speaker } from '../.
 @Component({
   selector: 'app-navBar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavBarComponent implements OnInit {
   logoPath: string;

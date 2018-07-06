@@ -16,11 +16,22 @@ display:inline-block;
 
 }
 
+.btn-huge{
+    padding-top:60px;
+    padding-bottom:60px;
+    min-width: 500px;
+    max-width: 500px;
+
+}
+
 .card {
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
 }
+
+
+
 
 
 
@@ -31,4 +42,20 @@ display:inline-block;
 
 }
 
+
+.view {
+    background: url("https://mdbootstrap.com/img/Photos/Others/img (50).jpg")no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 700px;
+    overflow-y: auto;
+}
 
