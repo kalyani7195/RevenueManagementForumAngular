@@ -5,8 +5,6 @@
       <div class="container text-center white-text">
         <div class="white-text text-center wow fadeInUp">
 
-
-
           <div class="container">
             <div class="row">
               <div *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
@@ -14,7 +12,6 @@
                 <button type="button" class="btn btn-primary btn-block btn-huge waves-light" (click)="form.show()" mdbWavesEffect>{{pastRevenueForumEvent.title}}</button>
                 <div mdbModal #form="mdb-modal" class="modal fade" id="modalRelatedContent" tabindex="-1" data-backdrop="false" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-notify modal-info" role="document">
-
                       <div class="modal-content">
                         <!--Header-->
                         <div class="modal-header">
@@ -32,21 +29,22 @@
                           <p> {{pastRevenueForumEvent.startDateTime |date: 'shortTime'}} to {{pastRevenueForumEvent.endDateTime | date:'shortTime'}}</p>
                           <p>@
                             <a href={{pastRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>  {{pastRevenueForumEvent.address.details}},{{pastRevenueForumEvent.address.city}}-{{pastRevenueForumEvent.address.pinCode}} ,{{pastRevenueForumEvent.address.state}},{{pastRevenueForumEvent.address.country}}</h6></a>
-
                           </p>
                           <hr>
                           <br>
                           <div *ngFor="let speaker of pastRevenueForumEvent.speakers">
                           <div class="row">
                             <div class="col-5">
-                              <a  href={{speaker.linkToLinkedInProfile}} target="_blank">
                               <img src="{{getImageUrl(speaker.pathToImage)}}" class="img-fluid" alt="">
-                              </a>
                             </div>
                             <div class="col-7">
                               <p><strong>{{speaker.name}}</strong></p>
-                              <p>{{speaker.position}},{{speaker.organization}}</p>
+                              <p>{{speaker.position}}, {{speaker.organization}}</p>
+                              <a href={{speaker.linkToLinkedInProfile}} target="_blank"><i class="fa fa-linkedin"></i></a>
                             </div>
+
+
+
                           </div>
                             <hr>
                           </div>
@@ -54,84 +52,24 @@
                     </div>
                   </div>
                 </div>
-                  <br>
+                <br>
               </div>
               </div>
-
-
-
-
             </div>
           </div>
-
-
-
-
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-<!--/.Panel-->
-
-
-
-<!--
-
-<div id="eventForLoop" *ngFor="let pastRevenueForumEvent of pastRevenueForumEvents">
-  <div class="jumbotron" >
-    <h2 class="h1 h1-responsive flex-center">{{pastRevenueForumEvent.title}}</h2>
-    <p class="flex-center">{{pastRevenueForumEvent.description}}</p>
-    <hr class="my-4">
-    <div id="speakerImageContainer"  *ngFor="let speaker of pastRevenueForumEvent.speakers">
-      <div class="container">
-        <div class="row flex-center">
-          <div class="col-sm-21 col-lg-4">
-      <div class="card h-500 border-secondary" style="width: 21rem;">
-        <img class="card-img-top" src="{{getImageUrl(speaker.pathToImage)}}" alt="Card image cap">
-        <div class="card-body">
-
-          <a id="speakerName" href={{speaker.linkToLinkedInProfile}} target="_blank"><h6>{{speaker.name}}</h6></a>
-          <h5 id= "position" class="card-title">{{speaker.position}}</h5>
-          <h5 id="organization" class="card-title">{{speaker.organization}}</h5>
-        </div>
-        </div>
-          </div>
-      </div>
-      </div>
-    </div>
-    <hr class="my-4">
-    <h4>When</h4>
-    <h6>{{pastRevenueForumEvent.startDateTime |date: 'fullDate'}}</h6>
-    <h6>{{pastRevenueForumEvent.startDateTime |date: 'shortTime'}} to {{pastRevenueForumEvent.endDateTime | date:'shortTime'}}</h6>
-    <hr class="my-4">
-
-    <h4>Where</h4>
-    <a href={{pastRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>{{pastRevenueForumEvent.address.details}},{{pastRevenueForumEvent.address.city}}-{{pastRevenueForumEvent.address.pinCode}} ,{{pastRevenueForumEvent.address.state}},{{pastRevenueForumEvent.address.country}}</h6></a>
+<footer class="page-footer font-small indigo pt-4 mt-4">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="http://www.rmforum.co.in:4200"> rmforum.co.in </a>
   </div>
-</div>
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
 

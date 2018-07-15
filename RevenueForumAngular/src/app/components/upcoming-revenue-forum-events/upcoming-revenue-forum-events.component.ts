@@ -23,18 +23,13 @@ export class UpcomingRevenueForumEventsComponent implements OnInit {
   this.revenueForumEventService.getUpcomingRevenueForumEvents().subscribe(upcomingRevenueForumEvents => {
   console.log('data'+ JSON.stringify(upcomingRevenueForumEvents));
   this.upcomingRevenueForumEvents= upcomingRevenueForumEvents;
-  }
-  );
-  }
-
-
+  });
+ }
 
   registerParticipant(eventId,participant){
-  console.log(JSON.stringify(participant));
-  this.revenueForumEventService.updateRevenueForumEventParticipants(eventId, participant)
-  .subscribe(data => {console.log(data);},
-   error => console.log(error));
-
-   alert('Thank you for registration! Please check your Email for more details.')
+    this.revenueForumEventService.updateRevenueForumEventParticipants(eventId, participant)
+    .subscribe(data => {console.log(data);},
+    error => console.log(error));
+    alert('Thank you for registration! Please check your Email for more details.')
  }
 }

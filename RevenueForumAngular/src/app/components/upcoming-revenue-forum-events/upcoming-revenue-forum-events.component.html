@@ -1,45 +1,27 @@
-
-
 <br>
 <br>
 <div class="row">
   <div class="col">
   </div>
-
   <div class="col-10">
     <div *ngIf ="upcomingRevenueForumEvents?.length === 0" >
       <h4 class="display-6">Next event coming soon...</h4>
     </div>
-
     <div *ngIf ="upcomingRevenueForumEvents?.length > 0">
       <div *ngFor="let upcomingRevenueForumEvent of upcomingRevenueForumEvents">
-
-
-
         <div class="jumbotron" >
           <h4 class="display-6 flex-center"><strong>{{upcomingRevenueForumEvent.title}}</strong></h4>
-
           <p >{{upcomingRevenueForumEvent.description}}</p>
-
-
           <hr class="my-4">
           <div *ngFor="let speaker of upcomingRevenueForumEvent.speakers">
             <a href={{speaker.linkToLinkedInProfile}} target="_blank"><h6>{{speaker.name}}</h6></a>
-
-
             <h6>{{speaker.position}},{{speaker.organization}}</h6>
-
           </div>
           <hr class="my-4">
-
           <h6>On {{upcomingRevenueForumEvent.startDateTime |date: 'fullDate'}}</h6>
           <h6>{{upcomingRevenueForumEvent.startDateTime |date: 'shortTime'}} to {{upcomingRevenueForumEvent.endDateTime | date:'shortTime'}}</h6>
           <a href={{upcomingRevenueForumEvent.address.linkToGoogleMap}} target="_blank"><h6>{{upcomingRevenueForumEvent.address.details}},{{upcomingRevenueForumEvent.address.city}}-{{upcomingRevenueForumEvent.address.pinCode}} ,{{upcomingRevenueForumEvent.address.state}},{{upcomingRevenueForumEvent.address.country}}</h6></a>
-
-
           <hr class="my-4">
-
-
           <button type="button" class="btn btn-primary waves-light" (click)="form.show()" mdbWavesEffect>Register</button>
           <div mdbModal #form="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog cascading-modal" role="document">
@@ -48,30 +30,66 @@
                 <div class="modal-header light-blue darken-3 white-text">
                   <h4 class="title"><i class="fa fa-pencil"></i> Registration Form </h4>
                   <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
-                    <span aria-hidden="true">×</span>
+                   <span aria-hidden="true">×</span>
                   </button>
                 </div>
 
                 <div class="modal-body mb-0">
+                  <form #participantForm="ngForm" (ngSubmit)="onSubmit(participantForm)">
                   <div class="md-form form-sm">
                     <i class="fa fa-user prefix"></i>
-                    <input mdbInputDirective type="text" id="name" class="form-control" [(ngModel)]="participant.name">
+                    <input mdbInputDirective type="text" id="name" class="form-control" [(ngModel)]="participant.name"
+                            [ngClass]="{'is-valid':participantName.errors && participantName.touched}"
+                            name="name"
+                            #participantName="ngModel"
+                            required>
+                    <div [hidden]="!participantName.errors?.required"
+                         class="invalid-feedback">
+                    </div>
                     <label for="name">Your name</label>
                   </div>
 
                   <div class="md-form form-sm">
                     <i class="fa fa-envelope prefix"></i>
-                    <input mdbInputDirective type="text" id="email" class="form-control" [(ngModel)]="participant.emailId">
+                    <input mdbInputDirective type="text" id="email" class="form-control" [(ngModel)]="participant.emailId"
+                           [ngClass]="{'is-valid':participantEmail.errors && participantEmail.touched}"
+                           name="email"
+                           #participantEmail="ngModel"
+                           required
+                           pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                    >
+                    <div [hidden]="!participantEmail.errors?.required"
+                         class="invalid-feedback">
+                    </div>
+
+                    <div [hidden]="!participantEmail.errors?.pattern" class="invalid-feedback">
+
+                    </div>
+
+
                     <label for="email">Your email</label>
                   </div>
 
                   <div class="md-form form-sm">
                     <i class="fa fa-briefcase prefix"></i>
-                    <input mdbInputDirective type="text" id="organization" class="form-control"  [(ngModel)]="participant.organization">
+                    <input mdbInputDirective type="text" id="organization" class="form-control"  [(ngModel)]="participant.organization"[ngClass]="{'is-invalid': participantOrganization.errors && participantOrganization.touched }"
+                           name="organization"
+                           #participantOrganization="ngModel"
+                           required
+
+                    >
+                    <div [hidden]="!participantOrganization.errors?.required"
+                         class="invalid-feedback">
+
+                    </div>
+
+
+
                     <label for="organization">Your Organization</label>
                   </div>
+                  </form>
                   <div class="text-center mt-1-half">
-                    <button class="btn btn-info mb-2 waves-light" (click)="registerParticipant(upcomingRevenueForumEvent.eventId,participant)" mdbWavesEffect>Add <i class="fa fa-send ml-1"></i></button>
+                    <button class="btn btn-info mb-2 waves-light" [disabled]="!participantForm.form.valid"  (click)="registerParticipant(upcomingRevenueForumEvent.eventId,participant)" mdbWavesEffect>Add <i class="fa fa-send ml-1"></i></button>
                   </div>
 
                 </div>
@@ -80,17 +98,9 @@
           </div>
         </div>
       </div>
-
-
     </div>
-
-
-
-
-
   </div>
   <div class="col">
-
   </div>
 </div>
 
@@ -100,6 +110,14 @@
 
 
 
+<footer class="page-footer font-small indigo pt-4 mt-4">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="http://www.rmforum.co.in:4200"> rmforum.co.in </a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
 
 
