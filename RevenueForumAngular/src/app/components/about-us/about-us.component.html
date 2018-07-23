@@ -15,15 +15,46 @@
               The forum is ongoing since 2016, and the frequency is once every quarter.
               It is usually an evening, with the main program for about 90 minutes followed by networking time.
             </h5>
-            <br>
             <h5 class ="animated fadeInLeft">
               Usually starts with an ice-breaking session, followed by Talk by Invited Speakers, and ending with a Panel Discussion also open for audience questions.
             </h5>
+
+
+
+
+            <button type="button" class="btn btn-primary btn-lg" (click)="form.show()" mdbWavesEffect data-toggle="modal" data-target="#basicExample">
+              Photo Gallery
+            </button>
+
+
+            <div  mdbModal #form="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
+                  <!--Carousel Wrapper-->
+                  <mdb-carousel [isControls]="true" [animation]="'slide'">
+
+                    <div *ngFor="let imagePath of imagePathArray">
+                     <mdb-slide>
+                    <img class="d-block w-100" [src]="imagePath">
+                      </mdb-slide>
+                    </div>
+
+                  </mdb-carousel>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+          </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+
+
   <main class="text-center py-5">
     <div class="container">
       <div class="row">
@@ -46,6 +77,19 @@
       </div>
     </div>
   </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <footer class="page-footer font-small indigo pt-4 mt-4">
     <!-- Copyright -->

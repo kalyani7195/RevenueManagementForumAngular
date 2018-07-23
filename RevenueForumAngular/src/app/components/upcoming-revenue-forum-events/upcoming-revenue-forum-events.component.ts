@@ -21,7 +21,7 @@ export class UpcomingRevenueForumEventsComponent implements OnInit {
 
   ngOnInit() {
   this.revenueForumEventService.getUpcomingRevenueForumEvents().subscribe(upcomingRevenueForumEvents => {
-  console.log('data'+ JSON.stringify(upcomingRevenueForumEvents));
+  //console.log('data'+ JSON.stringify(upcomingRevenueForumEvents));
   this.upcomingRevenueForumEvents= upcomingRevenueForumEvents;
   });
  }

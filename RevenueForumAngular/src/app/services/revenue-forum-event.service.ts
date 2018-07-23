@@ -79,12 +79,12 @@ export class RevenueForumEventService {
 
 
    getSpeakerImage(pathToImage):Observable<any>{
-         console.log('call!!!');
+       //  console.log('call!!!');
          const headers= new Headers();
          headers.append('Access-Control-Allow-Origin','*');
          headers.append('Access-Control-Allow-Methods','POST, PUT, GET, OPTIONS');
           const options = new RequestOptions({headers});
-         console.log(`${this.baseUrl}/speaker/${pathToImage}`);
+       //  console.log(`${this.baseUrl}/speaker/${pathToImage}`);
          return this.http.get(`${this.baseUrl}/${this.urlSuffix}/speaker/${pathToImage}`,options).map((response: Response) => response.json());
    }
   }
